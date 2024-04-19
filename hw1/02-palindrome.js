@@ -3,7 +3,8 @@ const inputElement = document.querySelector("input");
 inputElement.addEventListener("input", isNumPalindrome);
 
 function isNumPalindrome() {
-  var num = document.getElementById("number").value;
+  const num = document.getElementById("number").value;
+  const result = document.getElementById("result");
 
   result.textContent = "";
 
@@ -11,20 +12,19 @@ function isNumPalindrome() {
     return;
   }
 
-  if (num >= 0) {
-    var reversedNum = parseInt(num.toString().split("").reverse().join(""));
+  if (num < 0 || isNaN(num)) {
+    result.textContent = "Please enter a positive number.";
+    result.style.color = "red";
+    return;
+  } else {
+    const reversedNum = parseInt(num.toString().split("").reverse().join(""));
 
     if (parseInt(num) === reversedNum) {
-      document.getElementById("result").textContent =
-        "Yes. This is a palindrome!";
-      document.getElementById("result").style.color = "green";
+      result.textContent = "Yes. This is a palindrome!";
+      result.style.color = "green";
     } else {
-      document.getElementById("result").textContent = "No. Try again.";
-      document.getElementById("result").style.color = "red";
+      result.textContent = "No. Try again.";
+      result.style.color = "red";
     }
-  } else {
-    document.getElementById("result").textContent =
-      "Please enter a positive number.";
-    document.getElementById("result").style.color = "red";
   }
 }
