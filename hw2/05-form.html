@@ -7,14 +7,125 @@
     <title>05 - Form</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="05-form.js"></script>
   </head>
-  <body>
+  <body class="bg-dark">
     <main>
-      <form>
-        <h1>Exercise 05 - Form</h1>
+      <form class="bg-light border rounded w-50 mx-auto mt-5 p-3" id="mainForm">
+        <h1 class="d-flex justify-content-center">Exercise 05 - Form</h1>
+        <div class="mb-3 mt-3">
+          <label for="name" class="form-label fw-bold">Full Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            data-course-name="Programming Languages"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label fw-bold">Email:</label>
+          <input type="text" class="form-control" id="email" name="email" />
+        </div>
+        <label class="form-group mt-3 mb-2 fw-bold">Registration Status:</label>
+        <select class="form-select" id="registration" name="registration">
+          <option selected>Choose an option</option>
+          <option value="1">Registered</option>
+          <option value="2">Not Registered</option>
+        </select>
+        <label class="input-group mt-4 mb-2 fw-bold"
+          >Have you taken any of the following courses?</label
+        >
+        <div class="courseContainer">
+          <input
+            class="courseCheck"
+            type="checkbox"
+            name="courses"
+            value="Programming Languages"
+            id="pl"
+            data-course-name="Programming Languages"
+          />
+          <label class="courseLabel" for="pl">Programming Languages </label>
+        </div>
+        <div class="courseContainer">
+          <input
+            class="courseCheck"
+            type="checkbox"
+            name="courses"
+            value="Operating Systems"
+            id="os"
+            data-course-name="Operating Systems"
+          />
+          <label class="courseLabel" for="os">Operating Systems </label>
+        </div>
+        <div class="courseContainer">
+          <input
+            class="courseCheck"
+            type="checkbox"
+            name="courses"
+            value="Full Stack Web Development"
+            id="fswd"
+            data-course-name="Full Stack Web Development"
+          />
+          <label class="courseLabel" for="fswd"
+            >Full Stack Web Development
+          </label>
+        </div>
+        <label class="form-group mt-4 fw-bold">Anything else?</label>
+        <div class="input-group">
+          <textarea
+            id="additionalTextInput"
+            name="additionalTextInput"
+            class="form-control"
+            aria-label="textarea"
+          ></textarea>
+        </div>
+        <div class="mt-5">
+          <button
+            type="submit"
+            class="btn btn-primary btn-small"
+            style="width: 49%; justify-content: center; display: inline"
+          >
+            Submit
+          </button>
+          <button
+            type="reset"
+            class="btn btn-secondary btn-small"
+            style="width: 49%; justify-content: center; display: inline"
+          >
+            Reset
+          </button>
+        </div>
       </form>
+
+      <div class="modal" tabindex="-1" id="submissionModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Form Submission Data</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="modalContent"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
