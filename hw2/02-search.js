@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Find and display matching characters
-    const matches = characters.filter((c) =>
-      c.name.toLowerCase().includes(searchQuery)
+    const matches = characters.filter((character) =>
+      character.name.toLowerCase().includes(searchQuery)
     );
     matches.length > 0
       ? displayCharacters(matches, searchQuery)
@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function displayCharacters(characters, searchQuery) {
     characters.forEach((char) => {
-      // Highlight the search term in the character's name
       const highlightedName = char.name.replace(
         new RegExp(searchQuery, "gi"),
         (match) => `<mark>${match}</mark>`
