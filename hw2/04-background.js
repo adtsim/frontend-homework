@@ -5,10 +5,12 @@ let interval = null;
 let timerOn = false;
 
 function generateColorPalette() {
-  const r = Math.floor(Math.random() * 200);
-  const g = Math.floor(Math.random() * 200);
-  const b = Math.floor(Math.random() * 200);
-  const colorCode = `rgb(${r}, ${g}, ${b})`;
+  const h = Math.floor(Math.random() * 360);
+  const s = Math.floor(Math.random() * 100);
+  const l = Math.floor(Math.random() * 100);
+  const a = 0.5;
+
+  const colorCode = `hsla(${h}, ${s}%, ${l}%, ${a})`;
   return colorCode;
 }
 
